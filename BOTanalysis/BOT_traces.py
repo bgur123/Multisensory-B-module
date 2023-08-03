@@ -27,13 +27,13 @@ def getoptostim(xml, fps, frames):
     protocoll = protocoll[:len(frames)]
     return protocoll
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-os.chdir('U:/Christian_Felix_multisensory/Tseries')
-fly = '230724cf_fly1'
-tseries = 'TSeries-07242023-1320-001'
+os.chdir('U:/Christian_Felix_multisensory/Tseries') #tseries folder 
+fly = '230724cf_fly1' #fly folder name 
+tseries = 'TSeries-07242023-1320-001' #recording 
+
 csv_path = f"{fly}/{tseries}/{tseries}_Cycle00001-botData.csv"
 voltage_path = f"{fly}/{tseries}/{tseries}_Cycle00001_VoltageOutput_001.xml"
 metadata_path = f"{fly}/{tseries}/{tseries}.xml"
-
 csv_BOT = pd.read_csv(csv_path) #pandas frame with timestamp rows, + each BOT ROI as collumns
 layerposition = xmlUtilities.getLayerPosition(metadata_path) #(x,y,z), list with len 3
 frameperiod = xmlUtilities.getFramePeriod(metadata_path) #float, timebetween frames
